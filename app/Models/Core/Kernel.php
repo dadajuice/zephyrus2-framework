@@ -23,9 +23,9 @@ use Zephyrus\Routing\Router;
  *
  *   class Application extends Kernel
  *   {
- *       protected function registerControllers(Router $router): void
+ *       protected function registerControllers(Router $router): Router
  *       {
- *           $router->controller(HomeController::class);
+ *           return $router->controller(HomeController::class);
  *       }
  *   }
  *
@@ -51,8 +51,7 @@ abstract class Kernel
      */
     public function run(): void
     {
-        $router = new Router();
-        $this->registerControllers($router);
+        $router = $this->registerControllers(new Router());
 
         $builder = ApplicationBuilder::fromConfiguration($this->config)
             ->withRouter($router);
@@ -78,11 +77,14 @@ abstract class Kernel
     }
 
     /**
-     * Register all controllers with the router.
+     * Register all controllers with the router and return it.
+     *
+     * The Router uses an immutable API — methods like controller() return
+     * a new Router instance. Always return the final router.
      *
      * Override this method in your Application subclass.
      */
-    abstract protected function registerControllers(Router $router): void;
+    abstract protected function registerControllers(Router $router): Router;
 
     /**
      * Register global and named middleware.

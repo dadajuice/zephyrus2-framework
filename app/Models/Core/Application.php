@@ -9,8 +9,9 @@ use Zephyrus\Routing\Router;
 
 final class Application extends Kernel
 {
-    protected function registerControllers(Router $router): void
+    protected function registerControllers(Router $router): Router
     {
-        $router->controller(HomeController::class);
+        return $router
+            ->controller(HomeController::class);
     }
 }

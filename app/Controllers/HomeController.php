@@ -11,13 +11,13 @@ use Zephyrus\Core\Kernel;
 use Zephyrus\Data\Database;
 use Zephyrus\Http\Response;
 use Zephyrus\Rendering\RenderResponses;
-use Zephyrus\Routing\Attribute\Route;
+use Zephyrus\Routing\Attribute\Get;
 
 final class HomeController extends Controller
 {
     use RenderResponses;
 
-    #[Route('/', 'GET')]
+    #[Get('/')]
     public function index(): Response
     {
         return $this->render('home', [
