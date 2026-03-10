@@ -5,6 +5,7 @@
 {varType string $environment}
 {varType array $extensions}
 {varType array $database}
+{varType array $formatting}
 
 {block title}Zephyrus - Welcome{/block}
 
@@ -115,13 +116,37 @@
                 </div>
             </div>
 
+            {* Formatter Showcase *}
+            <div class="bg-white rounded-lg border border-gray-200 p-6 mb-10">
+                <h2 class="text-lg font-semibold text-gray-900 mb-4">Formatter</h2>
+                <p class="text-gray-500 text-sm mb-4">Locale-aware formatting powered by <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800">ext-intl</code>. Use the global <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800">format()</code> helper in controllers and templates.</p>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-gray-200">
+                                <th class="text-left py-2 pr-4 font-medium text-gray-600">Code</th>
+                                <th class="text-left py-2 font-medium text-gray-600">Result</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            {foreach $formatting as $example}
+                                <tr>
+                                    <td class="py-2 pr-4"><code class="text-xs font-mono text-indigo-700 bg-indigo-50 px-1.5 py-0.5 rounded">{$example['code']}</code></td>
+                                    <td class="py-2 font-mono text-gray-900">{$example['result']}</td>
+                                </tr>
+                            {/foreach}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
             {* Getting Started *}
             <div class="bg-white rounded-lg border border-gray-200 p-6 mb-10">
                 <h2 class="text-lg font-semibold text-gray-900 mb-4">Getting Started</h2>
                 <div class="space-y-4 text-gray-600">
                     <div class="flex items-start">
                         <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-900 text-white text-xs font-bold mr-3 mt-0.5 shrink-0">1</span>
-                        <p>Edit <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800">app/Controllers/HomeController.php</code> to modify this page or add new routes using <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800">#[Route]</code> attributes.</p>
+                        <p>Edit <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800">app/Controllers/HomeController.php</code> to modify this page or add new routes using <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800">#[Get]</code>, <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800">#[Post]</code> attributes.</p>
                     </div>
                     <div class="flex items-start">
                         <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-900 text-white text-xs font-bold mr-3 mt-0.5 shrink-0">2</span>
@@ -133,7 +158,7 @@
                     </div>
                     <div class="flex items-start">
                         <span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-gray-900 text-white text-xs font-bold mr-3 mt-0.5 shrink-0">4</span>
-                        <p>Register new controllers in <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800">public/index.php</code> by adding them to the Router.</p>
+                        <p>Register new controllers in <code class="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800">app/Models/Core/Application.php</code> by chaining them on the Router.</p>
                     </div>
                 </div>
             </div>

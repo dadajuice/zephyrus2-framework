@@ -53,7 +53,8 @@ abstract class Kernel
     {
         $router = $this->registerControllers(new Router());
 
-        $builder = ApplicationBuilder::fromConfiguration($this->config)
+        $builder = ApplicationBuilder::create()
+            ->withConfiguration($this->config, basePath: ROOT_DIR)
             ->withRouter($router);
 
         $builder = $this->configureErrorHandlers($builder);

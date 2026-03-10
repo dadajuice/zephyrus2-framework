@@ -26,7 +26,36 @@ final class HomeController extends Controller
             'environment' => env('APP_ENV', 'production'),
             'extensions' => $this->checkExtensions(),
             'database' => $this->checkDatabase(),
+            'formatting' => $this->formattingShowcase(),
         ]);
+    }
+
+    /**
+     * Build sample data for the Formatter showcase section.
+     *
+     * @return array<string, array{code: string, result: string}>
+     */
+    private function formattingShowcase(): array
+    {
+        $now = new \DateTimeImmutable();
+        $yesterday = $now->modify('-1 day');
+
+        return [
+            ['code' => "format('money', 1499.99, 'USD')", 'result' => format('money', 1499.99, 'USD')],
+            ['code' => "format('money', 2750.00, 'EUR')", 'result' => format('money', 2750.00, 'EUR')],
+            ['code' => "format('decimal', 1234567.891, 2)", 'result' => format('decimal', 1234567.891, 2)],
+            ['code' => "format('percent', 0.8542, 1)", 'result' => format('percent', 0.8542, 1)],
+            ['code' => "format('ordinal', 42)", 'result' => format('ordinal', 42)],
+            ['code' => "format('spellOut', 1984)", 'result' => format('spellOut', 1984)],
+            ['code' => "format('date', \$now)", 'result' => format('date', $now)],
+            ['code' => "format('date', \$now, 'full')", 'result' => format('date', $now, 'full')],
+            ['code' => "format('time', \$now)", 'result' => format('time', $now)],
+            ['code' => "format('datetime', \$now)", 'result' => format('datetime', $now)],
+            ['code' => "format('relativeTime', \$yesterday)", 'result' => format('relativeTime', $yesterday)],
+            ['code' => "format('duration', 7830)", 'result' => format('duration', 7830)],
+            ['code' => "format('filesize', 1572864)", 'result' => format('filesize', 1572864)],
+            ['code' => "format('list', ['PHP', 'Latte', 'PostgreSQL'])", 'result' => format('list', ['PHP', 'Latte', 'PostgreSQL'])],
+        ];
     }
 
     /**

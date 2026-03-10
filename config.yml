@@ -28,7 +28,7 @@ localization:
     - "en"
   locale_path: "locale"
   timezone: !env APP_TIMEZONE, UTC
-  currency: !env APP_CURRENCY
+  currency: !env APP_CURRENCY, USD
 
 database:
   host: !env DB_HOST, localhost
