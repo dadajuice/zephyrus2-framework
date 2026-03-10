@@ -1,0 +1,8 @@
+vendor/
+composer.lock
+.env
+cache/
+temp/
+xdebug/
+.idea/
+.DS_Store
