@@ -1,0 +1,52 @@
+application:
+  environment: !env APP_ENV, dev
+
+session:
+  name: "ZSESSID"
+  lifetime: 0
+  http_only: true
+  secure: false
+  same_site: "Lax"
+  cookie_path: "/"
+
+security:
+  force_https: false
+  csrf_enabled: true
+  csrf_auto_html: false
+  csrf_exceptions: []
+  allowed_hosts: []
+  max_body_size: 10485760
+  trusted_proxies: []
+
+localization:
+  default_locale: "en"
+  supported_locales:
+    - "en"
+  json_locale_paths:
+    - "locale"
+  json_extension: "json"
+
+database:
+  host: !env DB_HOST, localhost
+  port: !env DB_PORT, 5432
+  database: !env DB_NAME, zephyrus
+  username: !env DB_USERNAME, dev
+  password: !env DB_PASSWORD, dev
+  charset: "utf8"
+
+render:
+  engine: "latte"
+  directory: "app/Views"
+  cache: "cache/latte"
+  mode: "always"
+
+mailer:
+  smtp:
+    host: "localhost"
+    port: 1025
+    username: ""
+    password: ""
+    encryption: "none"
+  from:
+    address: "noreply@localhost"
+    name: "Zephyrus"
