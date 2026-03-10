@@ -45,8 +45,6 @@ final class HomeController extends Controller
             ['code' => "format('money', 2750.00, 'EUR')", 'result' => format('money', 2750.00, 'EUR')],
             ['code' => "format('decimal', 1234567.891, 2)", 'result' => format('decimal', 1234567.891, 2)],
             ['code' => "format('percent', 0.8542, 1)", 'result' => format('percent', 0.8542, 1)],
-            ['code' => "format('ordinal', 42)", 'result' => format('ordinal', 42)],
-            ['code' => "format('spellOut', 1984)", 'result' => format('spellOut', 1984)],
             ['code' => "format('date', \$now)", 'result' => format('date', $now)],
             ['code' => "format('date', \$now, 'full')", 'result' => format('date', $now, 'full')],
             ['code' => "format('time', \$now)", 'result' => format('time', $now)],
