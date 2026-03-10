@@ -49,7 +49,7 @@ final class HomeController extends Controller
             ['code' => "format('date', \$now, 'full')", 'result' => format('date', $now, 'full')],
             ['code' => "format('time', \$now)", 'result' => format('time', $now)],
             ['code' => "format('datetime', \$now)", 'result' => format('datetime', $now)],
-            ['code' => "format('relativeTime', \$yesterday)", 'result' => format('relativeTime', $yesterday)],
+            ['code' => "format('timeago', \$yesterday)", 'result' => format('timeago', $yesterday)],
             ['code' => "format('duration', 7830)", 'result' => format('duration', 7830)],
             ['code' => "format('filesize', 1572864)", 'result' => format('filesize', 1572864)],
             ['code' => "format('list', ['PHP', 'Latte', 'PostgreSQL'])", 'result' => format('list', ['PHP', 'Latte', 'PostgreSQL'])],
