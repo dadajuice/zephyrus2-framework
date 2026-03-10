@@ -9,11 +9,17 @@
             "email": "david.tucker@ophelios.com"
         }
     ],
+    "repositories": [
+        {
+            "type": "path",
+            "url": "/var/www/zephyrus2"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": "^8.4",
-        "dadajuice/zephyrus2": "dev-main",
+        "dadajuice/zephyrus2": "@dev",
         "ext-pdo": "*",
         "ext-intl": "*",
         "ext-sodium": "*",

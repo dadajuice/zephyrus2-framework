@@ -12,6 +12,7 @@ services:
       - database
     volumes:
       - ./:/var/www/html
+      - ../zephyrus2:/var/www/zephyrus2
 
   database:
     build:
