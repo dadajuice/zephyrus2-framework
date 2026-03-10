@@ -41,7 +41,7 @@ final class HomeController extends Controller
         $yesterday = $now->modify('-1 day');
 
         return [
-            ['code' => "format('money', 1499.99, 'USD')", 'result' => format('money', 1499.99, 'USD')],
+            ['code' => "format('money', 1499.99)", 'result' => format('money', 1499.99)],
             ['code' => "format('money', 2750.00, 'EUR')", 'result' => format('money', 2750.00, 'EUR')],
             ['code' => "format('decimal', 1234567.891, 2)", 'result' => format('decimal', 1234567.891, 2)],
             ['code' => "format('percent', 0.8542, 1)", 'result' => format('percent', 0.8542, 1)],

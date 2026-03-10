@@ -29,6 +29,9 @@ localization:
   locale_path: "locale"
   timezone: !env APP_TIMEZONE, UTC
   currency: !env APP_CURRENCY, USD
+  date_format: "MMMM d, yyyy"
+  time_format: "h:mm a"
+  datetime_format: "MMMM d, yyyy h:mm a"
 
 database:
   host: !env DB_HOST, localhost

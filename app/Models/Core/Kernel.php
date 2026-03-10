@@ -18,18 +18,10 @@ use Zephyrus\Routing\Router;
 /**
  * Abstract application kernel that encapsulates the full bootstrap lifecycle.
  *
- * Subclass and override the protected template methods to register your
- * controllers, middleware, and error handlers:
+ * Controllers are discovered automatically from app/Controllers/ by default.
+ * Override registerControllers() only if you need custom registration logic.
  *
- *   class Application extends Kernel
- *   {
- *       protected function registerControllers(Router $router): Router
- *       {
- *           return $router->controller(HomeController::class);
- *       }
- *   }
- *
- * Then in index.php:
+ * In index.php:
  *
  *   (new Application())->run();
  */
@@ -78,14 +70,28 @@ abstract class Kernel
     }
 
     /**
-     * Register all controllers with the router and return it.
+     * Discover and register controllers with the router.
      *
-     * The Router uses an immutable API — methods like controller() return
-     * a new Router instance. Always return the final router.
+     * By default, all concrete classes under app/Controllers/ with route
+     * attributes (#[Get], #[Post], etc.) are registered automatically.
      *
-     * Override this method in your Application subclass.
+     * Override this method to add manual registrations, apply groups, or
+     * restrict discovery:
+     *
+     *   protected function registerControllers(Router $router): Router
+     *   {
+     *       return parent::registerControllers($router)
+     *           ->group('/api', fn (Router $r) => $r
+     *               ->controller(ApiController::class));
+     *   }
      */
-    abstract protected function registerControllers(Router $router): Router;
+    protected function registerControllers(Router $router): Router
+    {
+        return $router->discoverControllers(
+            namespace: 'App\\Controllers',
+            directory: ROOT_DIR . '/app/Controllers',
+        );
+    }
 
     /**
      * Register global and named middleware.
