@@ -115,6 +115,7 @@ abstract class Kernel
         $this->config = Configuration::fromYamlFile(ROOT_DIR . '/config.yml', [
             'render' => RenderConfig::class,
             'mailer' => MailerConfig::class,
+            'project' => ProjectConfig::class,
         ]);
 
         /** @var RenderConfig $renderConfig */

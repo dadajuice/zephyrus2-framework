@@ -38,6 +38,11 @@ database:
   password: !env DB_PASSWORD, dev
   charset: "utf8"
 
+project:
+  name: "Zephyrus App"
+  version: "1.0.0"
+  maintenance: false
+
 render:
   engine: "latte"
   directory: "app/Views"
