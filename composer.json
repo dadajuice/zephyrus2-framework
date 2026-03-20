@@ -1,6 +1,6 @@
 {
-    "name": "dadajuice/zephyrus2-framework",
-    "description": "Template project for Zephyrus 2 framework.",
+    "name": "zephyrus-framework/framework",
+    "description": "Application template for the Zephyrus PHP framework — Docker-ready with controllers, Latte views, database, sessions, and mailer preconfigured.",
     "type": "project",
     "license": "MIT",
     "authors": [
@@ -9,17 +9,11 @@
             "email": "david.tucker@ophelios.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "path",
-            "url": "/var/www/zephyrus2"
-        }
-    ],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": "^8.4",
-        "dadajuice/zephyrus2": "@dev",
+        "zephyrus-framework/core": "@dev",
         "ext-pdo": "*",
         "ext-intl": "*",
         "ext-sodium": "*",
